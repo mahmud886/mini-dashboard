@@ -16,7 +16,7 @@ export type UseFetchResult<T> = UseFetchState<T> & {
 };
 
 export function useFetch<T = unknown>(url: string, init?: FetchConfig): UseFetchResult<T> {
-  const [state, setState] = useState<UseFetchState<T>>({ data: null, loading: true, error: null });
+  const [state, setState] = useState<UseFetchState<T>>({ data: null, loading: !init?.skip, error: null });
   const controllerRef = useRef<AbortController | null>(null);
   const initRef = useRef<FetchConfig | undefined>(init);
   const urlRef = useRef<string>(url);
@@ -58,7 +58,10 @@ export function useFetch<T = unknown>(url: string, init?: FetchConfig): UseFetch
   }, [url, init]);
 
   useEffect(() => {
-    if (init?.skip) return;
+    if (init?.skip) {
+      setState((s) => ({ ...s, loading: false }));
+      return;
+    }
     doFetch();
     return () => controllerRef.current?.abort();
   }, [doFetch, init?.skip]);

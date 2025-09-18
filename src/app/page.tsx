@@ -13,6 +13,7 @@ export default function Home() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="flex items-baseline justify-between"
+        style={{ opacity: 1 }}
       >
         <h1 className="text-2xl font-semibold">Welcome back 👋</h1>
         <div className="text-sm text-zinc-500">
@@ -27,7 +28,13 @@ export default function Home() {
         </div>
       </motion.div>
 
-      <motion.div variants={listStagger} initial="hidden" animate="visible" className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <motion.div
+        variants={listStagger}
+        initial="hidden"
+        animate="visible"
+        className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+        style={{ opacity: 1 }}
+      >
         <Card title="Weekly Views" subtitle="12,342" variants={itemRise}>
           <div className="mt-2 h-24">
             <AnimatedBar widthPercent={76} />

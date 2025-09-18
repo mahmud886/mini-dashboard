@@ -54,3 +54,6 @@ export function SkeletonTableRows({ rows = 6, cols = 3 }: { rows?: number; cols?
     </tbody>
   );
 }
+export function SkeletonAvatar({ size = 40 }: { size?: number }) {
+  return <Skeleton className="rounded-full" style={{ width: size, height: size }} />;
+}

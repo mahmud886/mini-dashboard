@@ -1,7 +1,8 @@
+import { SidebarLayout } from '@/components/layout/SidebarLayout';
 import type { Metadata } from 'next';
+import { SessionProvider } from 'next-auth/react';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
-import { SidebarLayout } from '@/components/layout/SidebarLayout';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -14,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Mini Dashboard Application',
-  description: 'Mini Dashboard Application',
+  title: 'Frontend Developer Test',
+  description: 'Frontend Developer Test – Zettabyte Technology Inc.',
 };
 
 export default function RootLayout({
@@ -26,7 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <SidebarLayout>{children}</SidebarLayout>
+        <SessionProvider refetchOnWindowFocus refetchWhenOffline={false}>
+          <SidebarLayout>{children}</SidebarLayout>
+        </SessionProvider>
       </body>
     </html>
   );
