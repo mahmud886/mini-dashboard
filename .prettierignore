@@ -1,0 +1,17 @@
+# Ignore Next.js build output
+.next
+
+# Common build artifacts
+out
+build
+dist
+
+# Dependencies and caches
+node_modules
+coverage
+.cache
+
+# OS / editor files
+.DS_Store
+.idea
+.vscode
