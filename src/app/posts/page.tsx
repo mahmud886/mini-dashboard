@@ -3,5 +3,5 @@ export default function PostsPage() {
     <>
       <h2>Posts Page</h2>
     </>
-  )
+  );
 }

@@ -3,5 +3,5 @@ export default function UsersPage() {
     <>
       <h2>Users Page</h2>
     </>
-  )
+  );
 }
